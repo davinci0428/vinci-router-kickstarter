@@ -17,7 +17,7 @@ const Home=(props)=> {
       <div className="Home-main-wrapper"  style={{left: (screen.size.width/2)-wrapper.width/2}}>
         <div style={wrapper.style} >    
           <NavBottom rt={rt} maxWidth={300} wrapperWidth={wrapper.width} screenSize={screen.size} />
-          <PageOne rt={rt} screenSize={screen.size} transition={{type: 'slideIn', from: 'bottom', to: null}} />
+          <PageOne rt={rt} screenSize={screen.size} />
         </div>
       </div>
     </Fragment>
