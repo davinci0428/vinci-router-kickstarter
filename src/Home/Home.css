@@ -1,0 +1,56 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.Home-main-wrapper {
+  position: absolute;
+  top: 0; bottom: 0;
+  background-color: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: 'center';
+  border: 1px solid white;
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-weight: 400;
+}
+
+.Home-background {
+  background-image: url("./images/photo-tropical-island.jpg");
+  background-color: #d7d8d3;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: 50% 80%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1000;
+  opacity: 1;
+}
+
+.Home-nav-bottom {
+  width: 100%;
+  height: 56px;
+  border-radius: 28px;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.border-red {
+  border: 1px solid red;
+}
