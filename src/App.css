@@ -1,7 +1,15 @@
+html {
+  overflow: hidden;
+  width: 100%;
+}
+
 body {
+  height: 100%;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  /* prevent overscroll bounce*/
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* iOS velocity scrolling */
+  /* width: 50%;
+  margin-left: 25%; */
 }
