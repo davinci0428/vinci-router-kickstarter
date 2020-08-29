@@ -91,8 +91,8 @@ export const useVinciRouter = () => {
   };
 
   const navigate = (url) => {
-    console.log('url:', url)
-    console.log('window.location.pathname:', window.location.pathname)
+    //console.log('url:', url)
+    //console.log('window.location.pathname:', window.location.pathname)
     if(url != window.location.pathname){
       window.history.pushState({url: url}, '', url);
     }else{console.log('blocks same URL')}
@@ -102,6 +102,35 @@ export const useVinciRouter = () => {
 }
 
 export const usePageTransitions=(thisPage, segmentNumber)=> {
+  let [prev, setPrev] = useState('');
+  let [render, setRender] = useState(false);
+  let [animate, setAnimate] = useState(false);
+
+  let segments = usePathSegments();
+  let seg = segments[segmentNumber];
+
+  // Strip off and ignore data parameter in seg. The data parameter is immediately after a colon
+  let segSplit = seg ? seg.split(':') : '';
+  seg = segSplit[0];
+
+  useEffect(()=>{
+    if( seg=== thisPage && prev != thisPage){
+      console.log('--->>entering ' + thisPage)
+      setRender(true);
+      setAnimate(true);
+      setPrev(thisPage);
+    }
+    if( seg != thisPage && prev === thisPage ){
+      setAnimate(false);
+      setTimeout(()=> { setRender(false);console.log(thisPage + ' is gone.') }, 1000);
+      setPrev('');
+      console.log('<<---exiting ' + thisPage)
+    }
+  },[seg]);
+  return({render: render, animate: animate});
+}
+
+export const useComponentTransitions=(thisPage, segmentNumber)=> {
   let [prev, setPrev] = useState('');
   let [render, setRender] = useState(false);
   let [animate, setAnimate] = useState(false);
@@ -136,7 +165,7 @@ export const useWrapper=(wrapperWidth, wrapperHeight, screenSize)=> {
     height: wrapperHeight,
     overflow: 'hidden'
   }
-  console.log(`wrapperWidth: ${wrapperWidth} -- screenSize.width: ${screenSize.width}`)
+  //console.log(`wrapperWidth: ${wrapperWidth} -- screenSize.width: ${screenSize.width}`)
   return {width: wrapperWidth, style: wrapperStyle}
 }
 
