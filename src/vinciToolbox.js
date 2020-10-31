@@ -115,16 +115,19 @@ export const usePageTransitions=(thisPage, segmentNumber)=> {
 
   useEffect(()=>{
     if( seg=== thisPage && prev != thisPage){
-      console.log('--->>entering ' + thisPage)
+      // console.log('--->>entering ' + thisPage)
       setRender(true);
       setAnimate(true);
       setPrev(thisPage);
     }
     if( seg != thisPage && prev === thisPage ){
       setAnimate(false);
-      setTimeout(()=> { setRender(false);console.log(thisPage + ' is gone.') }, 1000);
+      setTimeout(()=> { 
+        setRender(false);
+        // console.log(thisPage + ' is gone.') 
+      }, 1000);
       setPrev('');
-      console.log('<<---exiting ' + thisPage)
+      // console.log('<<---exiting ' + thisPage)
     }
   },[seg]);
   return({render: render, animate: animate});
@@ -142,12 +145,12 @@ export const useComponentTransitions=(thisPage, segmentNumber)=> {
     if( seg=== thisPage && prev != thisPage){
       console.log('--->>entering ' + thisPage)
       setRender(true);
-      setAnimate(true);
+      setAnimate(true);     
       setPrev(thisPage);
     }
     if( seg != thisPage && prev === thisPage ){
       setAnimate(false);
-      setTimeout(()=> { setRender(false);console.log(thisPage + ' is gone.') }, 1000);
+      setTimeout(()=> { setRender(false); console.log(thisPage + ' is gone.') }, 1500);
       setPrev('');
       console.log('<<---exiting ' + thisPage)
     }

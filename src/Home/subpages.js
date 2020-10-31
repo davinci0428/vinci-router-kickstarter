@@ -14,7 +14,7 @@ export const PageOne = (props)=> {
       {pt.render ?
         <animated.div style={transition}>
           <h1>Montserat Font</h1>
-          <button onClick={()=> props.rt.nav(path + '/you')}>you</button>
+          <button onClick={()=> props.rt.nav('/one/you')}>you</button>
         </animated.div>
       : ''
       } 
