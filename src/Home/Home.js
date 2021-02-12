@@ -8,11 +8,16 @@ const Home=(props)=> {
   let screen = useScreenResizer(); // Sets up screen resize listener and returns with and height of screen
   let wrapper = useWrapper(700, 'auto', screen.size); // Maintains main page wrapper and sets its max width and  max height
   let rt = useVinciRouter(); // Sets up the router and url listener for the entire app
-  useEffect(()=> {
-    setTimeout(()=> rt.nav('/'),1000 ); // Initializes the router
-  },[])
+  // useEffect(()=> {
+  //   setTimeout(()=> rt.nav('/'),1000 ); // Initializes the router
+  // },[])
+
+  const initializeRouter = () => {
+    rt.nav('/');
+  }
+
   return (
-    <Fragment>
+    <div onLoad={initializeRouter}>
       <div className="Home-background"></div>
       <div className="Home-main-wrapper"  style={{left: (screen.size.width/2)-wrapper.width/2}}>
         <div style={wrapper.style} >    
@@ -20,7 +25,7 @@ const Home=(props)=> {
           <PageOne rt={rt} screenSize={screen.size} />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
