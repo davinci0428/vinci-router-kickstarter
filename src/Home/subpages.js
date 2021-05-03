@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useContext, useState, useEffect, Fragment } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { usePageTransitions, goHome } from '../vinciToolbox';
-
 
 export const PageOne = (props)=> {
   let pt = usePageTransitions('/one', 1)
@@ -26,7 +25,7 @@ export const PageOne = (props)=> {
 export const You = (props)=> {
   let pt = usePageTransitions('/you', 2);
 
-  console.log(' props.screenSize.height',  props.screenSize.width + 10)
+  // console.log(' props.screenSize.height',  props.screenSize.width + 10)
 
   let transition = useSpring({
     transform: `translateX(${pt.animate ? 0 : props.screenSize.width + 10}px)`,
