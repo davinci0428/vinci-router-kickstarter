@@ -3,13 +3,3 @@ html {
   width: 100%;
 }
 
-body {
-  height: 100%;
-  position: fixed;
-  /* prevent overscroll bounce*/
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  /* iOS velocity scrolling */
-  /* width: 50%;
-  margin-left: 25%; */
-}

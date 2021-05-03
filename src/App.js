@@ -3,8 +3,8 @@ import { useVinciRouter, useEventListener, screenResizeHandler, usePathSegments,
 import Home from './Home/Home'
 import './App.css';
 
-export const storeContext = createContext({color: 'red'});
-
+export let vinciContext = createContext({});
+export const storeContext = createContext({color: 'reddish'});
 
 function App() {
   let r = useVinciRouter();

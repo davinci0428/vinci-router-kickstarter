@@ -1,23 +1,29 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { usePageTransitions, goHome } from '../vinciToolbox';
+import { vinciContext } from '../App';
 
 export const PageOne = (props)=> {
+  let vinci = useContext(vinciContext);
   let pt = usePageTransitions('/one', 1)
+  
   let transition = useSpring({
-    transform: `translateY(${pt.animate ? 0 : props.screenSize.height+10}px)`,
+    position: 'absolute', top: 0, right: 0, bottom: 0, left: 0,
+    transform: `translateY(${pt.animate ? 0 : vinci.screen.size.height}px)`,
+    background: '#555',
+    display: pt.render ? 'block' : 'none',
   });
-  let path = window.location.pathname;
+  
   return(
     <Fragment>
-      {pt.render ?
-        <animated.div style={transition}>
+      <animated.div style={transition}>
+        <div style={{width: vinci.wrapper.width, margin: '0 auto', border: '1px dotted white'}}>
+        <div onClick={()=> window.history.go(-1)} >GO BACK</div>
           <h1>Montserat Font</h1>
-          <button onClick={()=> props.rt.nav('/one/you')}>you</button>
-        </animated.div>
-      : ''
-      } 
-      <You rt={props.rt} screenSize={props.screenSize} />
+          <button onClick={()=> vinci.rt.nav('/one/you')}>you</button>
+        </div>
+      </animated.div>
+      <You />
     </Fragment>
   )
 }
@@ -25,18 +31,19 @@ export const PageOne = (props)=> {
 export const You = (props)=> {
   let pt = usePageTransitions('/you', 2);
 
-  // console.log(' props.screenSize.height',  props.screenSize.width + 10)
+  let vinci = useContext(vinciContext);
 
   let transition = useSpring({
-    transform: `translateX(${pt.animate ? 0 : props.screenSize.width + 10}px)`,
+    position: 'absolute', top: 0, right: 0, bottom: 0, left: 0,
+    transform: `translateX(${pt.animate ? 0 : vinci.screen.size.width}px)`,
+    border: '1px dashed yellow'
   });
   let path = window.location.pathname
   return(
     <Fragment>
       {pt.render ?
         <animated.div style={transition}>
-          'You'
-          <button onClick={()=> goHome()}>Go Home!</button>
+        <div onClick={()=> window.history.go(-1)} >GO BACK</div>
         </animated.div>
       : ''
       }
