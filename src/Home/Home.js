@@ -11,7 +11,7 @@ import './Home.css';
 
 const Home=(props)=> {
   let screen = useScreenResizer(); // Sets up screen resize listener and returns with and height of screen
-  let wrapper = useWrapper(900, '100vh', screen.size); // Maintains main page wrapper and sets its max width and  max height
+  let wrapper = useWrapper(1200, '100vh', screen.size); // Maintains main page wrapper and sets its max width and  max height
   let rt = useVinciRouter(); // Sets up the router and url listener for the entire app
 
   const vinci = useContext(vinciContext);
