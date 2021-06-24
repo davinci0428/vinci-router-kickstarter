@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment, createContext, useContext } from 'react';
-import { NavBottom } from './components.js';
 import { PageOne, You } from './subpages.js';
 import { useVinciRouter, useWrapper, useScreenResizer, usePathSegments, usePageTransitions, goHome  } from '../vinciToolbox';
 import { vinciContext }  from '../App';
@@ -31,7 +30,7 @@ const Home=(props)=> {
       <div className="Home-background"></div>
       <div className="Home-main-wrapper"  style={{left: (screen.size.width/2)-wrapper.width/2}}>
         <div style={wrapper.style} >    
-          <button onClick={() => rt.nav('/one')}>PageOne</button>
+          <button style={{cursor: 'pointer'}} onClick={() => rt.nav('/one')}>Open page one</button>
         </div>
       </div>
       <PageOne />

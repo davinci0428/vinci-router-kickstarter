@@ -26,18 +26,17 @@ export const PageOne = (props)=> {
           boxSizing: 'border-box',
           border: '1px dotted white'
         }}>
-          <div onClick={()=> window.history.go(-1)} >GO BACK</div>
-          <h1>Montserat Font</h1>
-          <button onClick={()=> vinci.rt.nav('/one/you')}>you</button>
+          <div style={{marginBottom: 100, cursor: 'pointer'}} onClick={()=> window.history.go(-1)} >CLOSE PAGE ONE</div>
+          <button style={{cursor: 'pointer'}} onClick={()=> vinci.rt.nav('/one/two')}>Open page two</button>
         </div>
       </animated.div>
-      <You />
+      <PageTwo />
     </Fragment>
   )
 }
 
-export const You = (props)=> {
-  let pt = usePageTransitions('/you', 2);
+export const PageTwo = (props)=> {
+  let pt = usePageTransitions('/two', 2);
 
   let vinci = useContext(vinciContext);
 
@@ -58,12 +57,10 @@ export const You = (props)=> {
             height: '100vh',
             margin: '0 auto',
             padding: 20,
-            background: '#cccccc',
+            background: '#f2f2f2',
             color: '#333',
-            boxSizing: 'border-box',
-            border: '1px dotted red',
           }}>
-            <div onClick={()=> window.history.go(-1)} >GO BACK</div>
+            <div style={{cursor: 'pointer'}} onClick={()=> window.history.go(-1)} >CLOSE PAGE TWO</div>
           </div>
         </animated.div>
       : ''
