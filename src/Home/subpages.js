@@ -30,7 +30,6 @@ export const PageOne = (props)=> {
           <button style={{cursor: 'pointer'}} onClick={()=> vinci.rt.nav('/one/two')}>Open page two</button>
         </div>
       </animated.div>
-      <PageTwo />
     </Fragment>
   )
 }

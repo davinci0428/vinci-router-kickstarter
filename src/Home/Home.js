@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment, createContext, useContext } from 'react';
-import { PageOne, You } from './subpages.js';
+import { PageOne, PageTwo } from './subpages.js';
 import { useVinciRouter, useWrapper, useScreenResizer, usePathSegments, usePageTransitions, goHome  } from '../vinciToolbox';
 import { vinciContext }  from '../App';
 import { storeContext }  from '../App';
@@ -34,6 +34,7 @@ const Home=(props)=> {
         </div>
       </div>
       <PageOne />
+      <PageTwo />
     </div>
   );
 }
