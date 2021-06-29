@@ -23,7 +23,7 @@ const Home=(props)=> {
   }
 
   let data = useContext(storeContext);
-  console.log('Home - data=', data);
+  // console.log('Home - data=', data);
 
   return (
     <div onLoad={initializeRouter}>
